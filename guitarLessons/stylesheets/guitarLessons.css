@@ -7,46 +7,44 @@ html {
 
 body {
 	background-color:#F4F2EE;
-    width: 100%;
+	width: 100%; 
+		/*this makes sure body fills screen when below 960. 
+		It may not be needed*/
     max-width: 960px;
     margin: 0 auto;
     padding-top: 1em;
     padding-bottom: 1em;
-    box-sizing: border-box;
 }	
+
+
 
 	.frame {
 		display: grid;
-		grid-template-columns: 5% 23% 18% 32% 17% 5%;
+		grid-template-columns: 5% 90% 5%;
 		background-color: white;						
 	}
 
 	.header {
-		grid-column-start: 2;
-		grid-column-end: 6;
-		grid-row-start: 1;
-		grid-row-end: 2;
-		font-size: 1.95em;
+		grid-column: 2 / 3;
+		grid-row: 1 / 2;	
+	}
+
+	.headerBig {
+		font-size: 2em;
 		color: black;
-		padding-top: 1.5em;
+		padding-top: 2em;
+		margin:0;
+			/*so space between title and subtitle is smaller*/
 	}
 
 	.headerSmall {
-		font-size: .6em;
+		font-size: 1em;
 	}
 
 	.loubunk {
-		grid-column-start: 2;
-		grid-column-end: 6;
-		grid-row-start: 2;
-		grid-row-end: 3;
-		align-self: center;						
+		grid-column: 2 / 3;
+		grid-row: 2 / 3;
 	}
-
-/*	.sizePhoto {
-		max-width: 100%;
-		height: auto;
-	}*/
 
 	.lbPhoto {
 		float: left;
@@ -59,24 +57,6 @@ body {
 	.welcomeText {
 		padding-top: 2em;
 	}
-
-/*	.welcome {
-		grid-column-start: 3;
-		grid-column-end: 5;
-		grid-row-start: 2;
-		grid-row-end: 3;
-		padding-top: 10%;
-		padding-left: 3em;
-		padding-right: .6em;
-	}*/
-
-/*	.line1 {
-		grid-column-start: 2;
-		grid-column-end: 6;
-		grid-row-start: 3;
-		grid-row-end: 4;
-		padding-bottom: 1em;	
-	}*/
 
 	.aboutText {
 		padding-top: 1em;
@@ -91,36 +71,9 @@ body {
 	}
 
 	.aboutlessons {
-		grid-column-start: 2;
-		grid-column-end: 6;
-		grid-row-start: 4;
-		grid-row-end: 5;
+		grid-column: 2 / 3;
+		grid-row: 3 / 4;
 	}
-
-/*	.skillList {
-		grid-column-start: 2;
-		grid-column-end: 5;
-		grid-row-start: 5;
-		grid-row-end: 6;
-		padding-right: 5%;
-	}
-			
-	.aboutBottom {
-		grid-column-start: 2;
-		grid-column-end: 6;
-		grid-row-start: 6;
-		grid-row-end: 7;
-		padding-right: 5%;
-	}*/
-
-/*	.elecguitar {
-		grid-column-start: 5;
-		grid-column-end: 6;
-		grid-row-start: 2;
-		grid-row-end: 6;
-		justify-self: center;
-		align-self: center;
-	}*/
 
 	.acPhoto {
 		float: left;
@@ -131,29 +84,49 @@ body {
 	}
 
 	.rates {
-		grid-column-start: 2;
-		grid-column-end: 6;
-		grid-row-start: 7;
-		grid-row-end: 8;
+		grid-column: 2 / 3;
+		grid-row: 4 / 5;
 	}
 
 	.ratesText {
 		padding-top: 1em
 	}
 
-/*	.acousticguitar {
-		grid-column-start: 2;
-		grid-column-end: 4;
-		grid-row-start: 7;
-		grid-row-end: 8;
-		justify-self: center;
-		align-self:center ;
-	}*/
+	.contact {
+		grid-column: 2 / 3;
+		grid-row: 5 / 6;
+	}
 
 	.footer {
-		grid-column-start: 2;
-		grid-column-end: 6;
-		grid-row-start: 8;
-		grid-row-end: 9;		
+		grid-column: 2 / 3;
+		grid-row: 6 / 7;		
 	}
-		
+
+/****** BREAK POINTS ********/
+/* these properties are all duplicated above.
+due to css specificity (later overrides earlier) these 
+will be implemented when window size condition is true */
+
+@media (max-width: 420px) {
+	.headerBig {
+		padding-top: 1em;
+	}
+
+  	.ratesText {
+  		padding-top: 0em
+  	}
+
+  	.acPhoto {
+		padding-right: 1em;
+  		max-width: 45%;
+  	}
+}
+
+@media (max-width: 960px) {
+  	body {
+		padding-top: 0em;
+    	padding-bottom: 0em;
+    		/* css is processed in order top to bottom, so when this is true
+    		it overrides previous */
+  	}
+}	
